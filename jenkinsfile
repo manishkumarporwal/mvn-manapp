@@ -1,0 +1,18 @@
+pipeline {
+    agent {
+        node {
+            label 'maven-build-server'
+        }
+    }
+    tools {
+        maven 'maven3.9.8'
+    }
+
+    stages {
+        stage ('code build stage') {
+            steps {
+                mvn install
+            }
+        }
+    }
+}
